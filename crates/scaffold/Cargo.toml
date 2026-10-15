@@ -1,0 +1,19 @@
+[package]
+name = "craft-scaffold"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Interactive CLI that scaffolds a new eframe/egui desktop app on craft-libs (asks app id, family, features)"
+
+[[bin]]
+name = "craft-scaffold"
+path = "src/main.rs"
+
+[lib]
+name = "craft_scaffold"
+path = "src/lib.rs"
+
+[lints]
+workspace = true

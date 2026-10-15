@@ -43,6 +43,13 @@ craft-<name> = { git = "https://github.com/storytold/craft-libs", rev = "<commit
 - [Panel docking](docs/ui-docking.md): validated panel moves, floating groups, workspace adapters
   and an optional egui docking surface.
 
+## Starter template
+
+- [`templates/desktop-egui`](templates/desktop-egui/README.md): copy-paste eframe/egui desktop
+  starter wired to these crates (settings, quit, docking, theme, icons). Template, not a
+  library: copy it out, never depend on it. Agent notes in
+  [`templates/desktop-egui/AGENTS.md`](templates/desktop-egui/AGENTS.md).
+
 ## License and credits
 
 craft-libs is dual-licensed under [MIT](LICENSE-MIT) or [Apache-2.0](LICENSE-APACHE), at your option.

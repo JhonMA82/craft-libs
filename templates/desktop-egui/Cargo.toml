@@ -1,0 +1,33 @@
+# Standalone starter: copy this folder out of craft-libs to begin a new app.
+# It is intentionally NOT a craft-libs workspace member (see [workspace] below),
+# so the parent `cargo test --workspace` never builds it and copying it out
+# just works. First build needs network access for eframe/egui from crates.io.
+[workspace]
+
+[package]
+name = "template-desktop-egui"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.95"
+description = "Copy-paste starter for an eframe/egui desktop app wired to craft-libs (NOT a dependency: copy this folder out)"
+publish = false
+
+[[bin]]
+name = "template-desktop-egui"
+path = "src/main.rs"
+
+[dependencies]
+craft-settings = { path = "../../crates/settings" }
+craft-quit = { path = "../../crates/quit", features = ["egui", "menu"] }
+craft-ui = { path = "../../crates/ui", features = ["serde"] }
+egui = { version = "0.36", default-features = false }
+# glow keeps the binary small; wayland+x11 are both needed for Linux (winit backends).
+eframe = { version = "0.36", default-features = false, features = ["accesskit", "default_fonts", "glow", "wayland", "x11"] }
+# The app installs the svg loader; craft-ui only prepares SVG bytes.
+egui_extras = { version = "0.36", default-features = false, features = ["svg"] }
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+# Only the settings round-trip test uses it; production TOML goes through craft-settings.
+toml_edit = { version = "0.25", features = ["serde"] }
